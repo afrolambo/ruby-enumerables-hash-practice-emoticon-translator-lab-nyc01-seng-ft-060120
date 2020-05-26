@@ -32,19 +32,19 @@ end
 # end
 
 
-def get_japanese_emoticon(yaml_file, eng_emoti)
+def get_japanese_emoticon(path, emoticon)
   # code goes here
-  translation = ""
-  new_hash = load_library(yaml_file)
-  new_hash.each do |name, languages|
-      if languages[:english] == eng_emoti
-      translation = languages[:japanese]
+  emoji = ""
+  library = load_library(path)
+  library.each do |name, languages|
+      if languages[:english] == emoticon
+      emoji = languages[:japanese]
     end
   end
-    if translation == ""
+    if emoji == ""
       return "Sorry, that emoticon was not found"
     else 
-      return translation
+      return emoji
     end
 end
 
